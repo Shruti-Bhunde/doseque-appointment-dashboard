@@ -28,9 +28,6 @@ A clinical appointment management dashboard built for healthcare facilities, out
 - [9. Local Setup and Installation](#9-local-setup-and-installation)
 - [10. Deployment](#10-deployment)
 - [11. Requirements Coverage Matrix](#11-requirements-coverage-matrix)
-- [12. Future Improvements](#12-future-improvements)
-- [13. Author & Acknowledgments](#13-author--acknowledgments)
-
 ---
 
 ## 1. Project Overview
@@ -415,63 +412,71 @@ If a collision occurs, submission is prevented, preserving database consistency 
 
 ## 7. Application Screenshots
 
-This section presents the actual user interface and key workflows of the DoseQue dashboard.
-
-> **Note**: Screenshot images are located in the [`screenshots/`](screenshots/) directory.
-
 ### 1. Main Dashboard Overview
 *The primary operational interface displaying summary metrics, search bar, status tabs, and appointment records.*
 
-![Dashboard Overview](screenshots/dashboard-overview.png)
+<img width="959" height="475" alt="Screenshot 2026-11-12 101459" src="https://github.com/user-attachments/assets/d3725966-660d-4475-be52-6a875194c8d7" />
+
 
 ---
 
 ### 2. Appointment Data Table & Live Status
 *The desktop tabular view displaying patient details, attending physicians, consultation schedules, status badges, and action triggers.*
 
-![Appointment Table View](screenshots/appointment-table-view.png)
+<img width="790" height="384" alt="image" src="https://github.com/user-attachments/assets/e85fcacc-71a4-467a-b30b-e3ea596cb7a0" />
 
 ---
 
 ### 3. Add Appointment Modal with Dynamic Doctor Suggestions
 *Modal showing the appointment creation form with date validation and dynamic doctor suggestions populated from database records.*
 
-![Add Appointment Modal](screenshots/add-appointment-modal.png)
+<img width="426" height="411" alt="Screenshot 2026-11-12 101717" src="https://github.com/user-attachments/assets/a981fa00-7870-4caa-aab2-567e5e8e2017" />
+
+
 
 ---
 
 ### 4. Edit Appointment Modal
 *Inline editing view pre-populated with appointment details for schedule adjustments and clinical updates.*
 
-![Edit Appointment Modal](screenshots/edit-appointment-modal.png)
+<img width="374" height="394" alt="Screenshot 2026-11-12 101819" src="https://github.com/user-attachments/assets/3bb3bb96-72e6-45a4-8e01-86450796c924" />
+
 
 ---
 
 ### 5. Duplicate Appointment Collision Alert
 *Proactive warning banner triggered when attempting to book the same patient with the same doctor at an identical date and time.*
 
-![Duplicate Warning](screenshots/duplicate-warning.png)
+<img width="355" height="401" alt="Screenshot 2026-11-12 102103" src="https://github.com/user-attachments/assets/6ddaa6c5-649a-4839-838d-668ac7e6246f" />
+
 
 ---
 
 ### 6. Search and Multi-Tab Filtering
 *Real-time search filtering by patient name alongside status tab isolation (Scheduled, Completed, Cancelled).*
 
-![Search and Filtering](screenshots/search-and-filtering.png)
+<img width="719" height="190" alt="Screenshot 2026-11-12 101541" src="https://github.com/user-attachments/assets/b428bbd8-8ff7-4ce3-a903-24c0fcc1eae5" />
+<img width="731" height="280" alt="image" src="https://github.com/user-attachments/assets/176d64a2-3ad5-4fbf-b9d0-dcb812925955" />
+<img width="735" height="371" alt="image" src="https://github.com/user-attachments/assets/58b09b76-6c2c-4e2a-bbc8-f54d66d6a245" />
+
 
 ---
 
 ### 7. Soft Cancellation Confirmation Dialog
 *Safety confirmation dialog verifying cancellation intent while explaining that records are retained for auditing purposes.*
 
-![Cancel Confirmation Dialog](screenshots/cancel-confirmation-dialog.png)
+<img width="293" height="205" alt="Screenshot 2026-11-12 102301" src="https://github.com/user-attachments/assets/bc2d0884-d129-4598-9597-e8ed797f5c19" />
+
 
 ---
 
 ### 8. Mobile Responsive Layout
 *Adaptive card-based layout designed for mobile smartphones and clinical tablets.*
 
-![Mobile Responsive View](screenshots/mobile-responsive-view.png)
+<img width="738" height="1599" alt="image" src="https://github.com/user-attachments/assets/5cce10be-6902-443a-acaf-d2c17e6e130d" />
+<img width="738" height="1599" alt="image" src="https://github.com/user-attachments/assets/c4a29bef-58de-4498-bfdb-5a55be4f8eeb" />
+<img width="738" height="1599" alt="image" src="https://github.com/user-attachments/assets/c5245ece-1cba-4b68-a2d7-97ac0b9404d5" />
+<img width="738" height="1599" alt="image" src="https://github.com/user-attachments/assets/36dead81-e5ab-4638-b85e-cddd4b1afbaf" />
 
 ---
 
@@ -622,7 +627,7 @@ DoseQue is configured for zero-configuration continuous deployment on **Vercel**
    - Click **Deploy**. Vercel will install dependencies, compile the production bundle, and deploy the application to its global edge network.
 
 ### Live Application Link
-- **Production URL**: [https://doseque-appointment-dashboard.vercel.app](https://doseque-appointment-dashboard.vercel.app) *(or your specific Vercel deployment URL)*
+- **Production URL**: [https://doseque-appointment-dashboard.vercel.app](https://doseque-appointment-dashboard.vercel.app) 
 - **GitHub Repository**: [https://github.com/Shruti-Bhunde/doseque-appointment-dashboard](https://github.com/Shruti-Bhunde/doseque-appointment-dashboard)
 
 ---
@@ -647,29 +652,3 @@ This matrix maps each technical assessment requirement to its concrete implement
 | **Responsive Design** | Desktop, tablet, and mobile layouts | `src/components/Sidebar.jsx`, `src/components/AppointmentTable.jsx`, `tailwind.config.js` | Drawer sidebar with overlay on mobile; adaptive layout switching between tabular view and stacked card view. |
 
 ---
-
-## 12. Future Improvements
-
-While the current implementation fulfills all assessment requirements, the following features represent realistic next steps for a production deployment:
-
-1. **Role-Based Authentication (RBAC)**:
-   - Integrate Supabase Auth to provide dedicated login portals for Receptionists (read/write), Doctors (view own schedule & mark completed), and System Administrators.
-2. **Real-Time Supabase Subscriptions**:
-   - Utilize Supabase Realtime (`supabase.channel('appointments')`) to update the dashboard instantly when another staff member schedules or cancels an appointment.
-3. **Calendar / Week Schedule View**:
-   - Add a full-width interactive calendar or schedule grid (e.g., using FullCalendar) allowing drag-and-drop appointment rescheduling.
-4. **Automated Patient Reminders**:
-   - Integrate edge functions with Twilio or Resend to send automated SMS and email reminders to patients 24 hours prior to their appointment.
-5. **Pagination or Virtualized Scrolling**:
-   - Implement server-side pagination (`.range(start, end)`) or windowed virtualization (`tanstack-virtual`) for clinics managing thousands of appointments.
-6. **Export Reporting**:
-   - Provide one-click export of filtered appointment views to CSV or PDF for clinical audits and departmental handoffs.
-
----
-
-## 13. Author & Acknowledgments
-
-- **Developer**: [Shruti Bhunde](https://github.com/Shruti-Bhunde)
-- **Role**: Technical Assessment for Web Development Intern
-- **Repository**: [https://github.com/Shruti-Bhunde/doseque-appointment-dashboard](https://github.com/Shruti-Bhunde/doseque-appointment-dashboard)
-- **Framework & Libraries**: React, Vite, Tailwind CSS, Supabase, Lucide React, Oxlint, and Vercel.
